@@ -1,156 +1,316 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>HTML Öğrenim Süreci</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Batuhan Temür | Full Stack Portföy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-light: #1a1a1a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            
+            --text-main: #e6e6e6;
+            --text-muted: #888888;
+            --accent: #ffffff;
+            --border-color: #333333;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 0%, var(--bg-light) 0%, var(--bg-dark) 80%);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        header {
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .brand-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .brand-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-top: 10px;
+            display: block;
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+        }
+
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .hero-btn {
+            padding: 15px 50px;
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            background: transparent;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.02);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.06);
+            border-color: var(--border-color);
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-weight: 100;
+            color: rgba(255,255,255,0.1);
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        footer a {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 1.8rem; letter-spacing: 0.15em; }
+            .hero h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; gap: 15px; margin-top: 20px; align-items: center; }
+            .services { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
 <body>
 
-  <h1>HİLAL SEN BENİM KALBİMSİN...</h1>
+    <div class="container">
+        <header>
+            <div class="brand-container">
+                <span class="brand-name">M. Batuhan Temür</span>
+                <span class="brand-subtitle">Full Stack Developer</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Portföy</a></li>
+                    <li><a href="#">Hakkımda</a></li>
+                    <li><a href="mailto:metinbatuhantemur1@gmail.com">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
 
-  <ul>
-    <li>Bugün HTML öğrenme sürecimde tekrar yapmak maksadı ile telefonum ile bu sayfayı yazıyorum.</li>
-    <li>Öğrendiğim çok fazla husus yok ancak tekrar ederek ve <strong>pekiştirerek</strong> ilerliyorum.</li>
-  </ul>
+        <section class="hero">
+            <h1>
+                Dijital Estetik & <br>
+                <span>Fonksiyonel Tasarım</span>
+            </h1>
+            <p>
+                Modern web teknolojilerini görsel sanatla birleştiriyorum. 
+                Sadece çalışan değil, hissettiren arayüzler tasarlıyorum.
+            </p>
+            <a href="#detaylar" class="hero-btn">Detayları İncele</a>
+        </section>
 
-  <ol>
-    <li><del>Kaybetmek</del> yok aksine <b>kazanmak var</b></li>
-    <li>Bugün çalışmak, yarın mutlaka <b>kazandırır</b></li>
-  </ol>
+        <section id="detaylar" class="services">
+            
+            <div class="service-card">
+                <span class="card-number">01</span>
+                <h3>Arayüz Tasarımı & Frontend</h3>
+                <p>
+                    Statik tasarımları hayata geçiriyorum. Rive App ile animasyonlu, 
+                    Figma ve Illustrator ile piksel hassasiyetinde modern arayüzler üretiyorum.
+                </p>
+                <div class="tech-tags">
+                    <span class="tag">Figma</span>
+                    <span class="tag">Adobe Illustrator</span>
+                    <span class="tag">Rive App</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
 
-  <h2>Kazanmak ile kaybetmek kardeştir</h2>
+            <div class="service-card">
+                <span class="card-number">02</span>
+                <h3>Veri Yönetimi & Backend</h3>
+                <p>
+                    Görünmeyen kısmı inşa ediyorum. Güvenli veritabanı yönetimi ve 
+                    hızlı veri akışı sağlayan sağlam altyapılar kuruyorum.
+                </p>
+                <div class="tech-tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">Veritabanı Mimarisi</span>
+                </div>
+            </div>
 
-  <p>
-    <a href="https://aggressivegame.com" target="_blank">
-      Denemek için <b>bize katıl!</b>
-    </a>
-  </p>
+            <div class="service-card">
+                <span class="card-number">03</span>
+                <h3>Oyun & İnteraktif Deneyim</h3>
+                <p>
+                    Oyun motoru tecrübemi web teknolojileriyle birleştirerek, 
+                    karmaşık mekaniklere sahip interaktif projeler geliştiriyorum.
+                </p>
+                <div class="tech-tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">Unreal Engine 5</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Oyun Mekaniği</span>
+                </div>
+            </div>
 
-  <h3>Hedefime Odaklanıyorum:</h3>
+        </section>
 
-  <img
-    src="https://images.pexels.com/photos/170266/pexels-photo-170266.jpeg?auto=compress&cs=tinysrgb&w=300"
-    alt="Hedef tahtası ve ok"
-    width="200"
-  >
-
-  <p><b>Görsel:</b> Başarı bir hedeftir.</p>
-
-  <h3>Günün Değerlendirmesi</h3>
-
-  <form>
-
-    <p>
-      <b>Adın Soyadın:</b><br>
-      <input type="text" placeholder="Buraya adını yaz">
-    </p>
-
-    <p>
-      <b>Günlük Şifresi:</b><br>
-      <input type="password" placeholder="Şifreni belirle">
-    </p>
-
-    <p>
-      <b>Tarih:</b><br>
-      <input type="date">
-    </p>
-
-    <p><b>Bugün verimli geçti mi?</b></p>
-
-    <label>
-      <input type="checkbox"> Evet!
-    </label>
-
-    <label>
-      <input type="checkbox"> Hayır!
-    </label>
-
-    <p>
-      <button type="submit">Kaydet ve Bitir</button>
-    </p>
-
-  </form>
-
-  <h3>Yarınki Planım</h3>
-
-  <table border="1">
-
-    <tr>
-      <th>Saat</th>
-      <th>Aktivite</th>
-      <th>Önem Derecesi</th>
-      <th>Durum</th>
-    </tr>
-
-    <tr>
-      <td>08:00</td>
-      <td>Uyanış ve Kahvaltı</td>
-      <td>Yüksek</td>
-      <td>Mutlaka olmalı</td>
-    </tr>
-
-    <tr>
-      <td>12:00</td>
-      <td>HTML Çalışması</td>
-      <td>Çok Yüksek</td>
-      <td>Yoğun</td>
-    </tr>
-
-    <tr>
-      <td>19:00</td>
-      <td>Kitap Okuma</td>
-      <td>Orta</td>
-      <td>Rahat</td>
-    </tr>
-
-  </table>
-
-  <h3>Haftalık Programım</h3>
-
-  <table border="1">
-
-    <tr>
-      <th>Gün / Saat</th>
-      <th>Sabah</th>
-      <th>Öğlen</th>
-      <th>Akşam</th>
-    </tr>
-
-    <tr>
-      <th>Pazartesi</th>
-      <td>HTML Çalış</td>
-      <td>Dinlen</td>
-      <td>Kitap Oku</td>
-    </tr>
-
-    <tr>
-      <th>Salı</th>
-      <td>Okula Git</td>
-      <td>Spor Yap</td>
-      <td>Kod Yaz</td>
-    </tr>
-
-  </table>
-
-  <p>
-    <a href="kurs.JPEG" target="_blank">
-      <img src="kurs.JPEG" alt="Kurs görseli" width="300">
-    </a>
-  </p>
-
-  <p>
-    <a href="uygulama2.html" title="2.sayfa">
-      2. sayfaya git
-    </a>
-  </p>
-
-  <p>
-    <a href="mailto:admin@aggressivegame.com">
-      Mail Gönder
-    </a>
-  </p>
-
+        <footer>
+            <p>Bir fikriniz mi var? Hemen konuşalım.</p>
+            <p style="margin-top: 10px;">
+                <a href="mailto:metinbatuhantemur1@gmail.com">metinbatuhantemur1@gmail.com</a>
+            </p>
+            <p style="margin-top: 30px; font-size: 0.7rem; opacity: 0.5;">
+                &copy; 2026 M. Batuhan Temür. Tüm Hakları Saklıdır.
+            </p>
+        </footer>
+    </div>
 
 </body>
 </html>

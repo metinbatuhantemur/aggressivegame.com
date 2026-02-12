@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda | M. Batuhan Temür</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-light: #1a1a1a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            
+            --text-main: #e6e6e6;
+            --text-muted: #888888;
+            --accent: #ffffff;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 0%, var(--bg-light) 0%, var(--bg-dark) 80%);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8; /* Okuma kolaylığı için satır aralığı artırıldı */
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        /* --- HEADER (Index ile aynı) --- */
+        header {
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .brand-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .brand-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-top: 10px;
+            display: block;
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+        }
+
+        /* --- ABOUT CONTENT --- */
+        .about-section {
+            padding: 80px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-wrapper {
+            max-width: 800px; /* Metin çok yayılmasın, dergi gibi dursun */
+            text-align: left;
+        }
+
+        .section-label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Vurgulu Söz (Quote) */
+        .highlight-box {
+            margin: 50px 0;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent);
+        }
+
+        .highlight-box p {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Skills Listesi (Minimal) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+
+        .skill-col h3 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 1.8rem; }
+            .skills-grid { grid-template-columns: 1fr; gap: 30px; }
+            .content-wrapper { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="brand-container">
+                <a href="index.html">
+                    <span class="brand-name">M. Batuhan Temür</span>
+                    <span class="brand-subtitle">Full Stack Developer</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="portfoy.html">Portföy</a></li>
+                    <li><a href="hakkimda.html" class="active">Hakkımda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="about-section">
+            <div class="content-wrapper">
+                <span class="section-label">BİYOGRAFİ & VİZYON</span>
+                
+                <h1>Kodun Mantığı, Tasarımın Ruhu.</h1>
+                
+                <p>
+                    Teknoloji dünyasında sadece "kod yazan" biri değil, sistem inşa eden bir mimar olarak yer alıyorum. Yazılım geliştirme serüvenim, oyun dünyasının karmaşık algoritmalarıyla başladı. Unity ve Unreal Engine üzerinde edindiğim 3 boyutlu düşünme yetisi ve mekanik kurgulama disiplini, bugün geliştirdiğim web projelerinin temelini oluşturuyor.
+                </p>
+
+                <p>
+                    Full Stack geliştirici olarak yaklaşımım basit: <strong>Karmaşıklığı yönetilebilir parçalara bölmek.</strong> Bir projenin sadece arka planda (Backend) kusursuz çalışması yetmez; ön yüzde (Frontend) kullanıcının hissettiği deneyim de aynı mükemmellikte olmalıdır.
+                </p>
+
+                <div class="highlight-box">
+                    <p>
+                        "İyi bir yazılım, görünmeyen karmaşıklığın arkasındaki zarif sadeliktir. Amacım sadece çalışan değil, yaşayan sistemler kurmak."
+                    </p>
+                </div>
+
+                <p>
+                    Şu anda modern web teknolojileri (ASP.NET, JavaScript) ve veritabanı mimarileri üzerine yoğunlaşarak, ölçeklenebilir ve güvenli dijital ürünler tasarlıyorum. Görsel tarafta ise Figma ve Rive gibi araçlarla, statik tasarımlara hayat veriyorum.
+                </p>
+
+                <div class="skills-grid">
+                    <div class="skill-col">
+                        <h3>Teknik Yetkinlikler</h3>
+                        <ul class="skill-list">
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>ASP.NET Core & MVC</li>
+                            <li>SQL & Veritabanı Yönetimi</li>
+                            <li>C# Programlama</li>
+                        </ul>
+                    </div>
+                    <div class="skill-col">
+                        <h3>Tasarım & Araçlar</h3>
+                        <ul class="skill-list">
+                            <li>Figma (UI/UX)</li>
+                            <li>Adobe Illustrator</li>
+                            <li>Rive App (İnteraktif Animasyon)</li>
+                            <li>Unity & Unreal Engine</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                <a href="iletisim.html">Benimle İletişime Geçin</a>
+            </p>
+            <p style="margin-top: 30px; font-size: 0.7rem; opacity: 0.5;">
+                &copy; 2026 M. Batuhan Temür. Tüm Hakları Saklıdır.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
